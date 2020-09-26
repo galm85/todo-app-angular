@@ -1,8 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+
+
 .completed{
   color: green;
   text-decoration: line-through;
+  font-family: 'Quicksand', tahoma;
+  font-size: 1.5rem;
+  font-weight: 400;
+
 }
 
+.task{
+  font-family: 'Quicksand', tahoma;
+  font-size: 1.5rem;
+}
 
 .task:hover{
   cursor: pointer;

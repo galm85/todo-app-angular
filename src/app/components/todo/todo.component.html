@@ -1,7 +1,13 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+    </style>
+
+
+
 <div class="container">
 
 <div class="row justify-content-center">
-  <div class="col-5 d-flex">
+  <div class="col-7 d-flex">
     <input type="text" class="form-control" #newTodo>
     <button class="btn btn-primary ml-1" (click)="addTodo(newTodo)"><i class="fas fa-plus"></i></button>
 
@@ -10,19 +16,18 @@
 
 <div class="row justify-content-center mt-5">
   <div class="col-7">
-    <table class="table">
+    <table class="table table-dark">
       <thead>
         <tr>
-          <th class="col-11">Task</th>
+          <th class="col-11 task">Task</th>
           <!-- <th class="col-1">Completed</th> -->
-          <th class="col-1">remove</th>
+          <th class="col-1 task">remove</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let todo of todos">
           <td [ngClass]="{completed:todo.completed}" class="task" (click)="switchStatus(todo)">{{todo.title}}</td>
-          <!-- <td (click)="switchStatus(todo)" class="text-center" ><button class="btn btn-primary">complete</button></td> -->
-          <td (click)="removeTodo(todo)" class="text-center text-danger"><i class="far fa-trash-alt"></i></td>
+          <td (click)="removeTodo(todo)" class=" text-center text-danger"><i  class="far fa-trash-alt task"></i></td>
         </tr>
 
       </tbody>
