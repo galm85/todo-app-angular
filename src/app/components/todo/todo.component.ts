@@ -12,6 +12,15 @@ export class TodoComponent implements OnInit {
 
   constructor() { }
 
+  renderTodos(){
+    this.todos = this.todos.sort(function(a,b){
+      if(a.completed>b.completed) return 1;
+      if(a.completed<b.completed) return -1;
+      return 0;
+
+    })
+  }
+
   ngOnInit(): void {
     let list=localStorage.getItem('todoList')
     if(!list)return null;
@@ -24,18 +33,21 @@ export class TodoComponent implements OnInit {
    this.todos.push(todo);
    this.idNumber++;
    newTodo.value = "";
+   this.renderTodos();
    localStorage.setItem("todoList",JSON.stringify(this.todos))
 
   }
 
   removeTodo(todo){
     this.todos = this.todos.filter(item =>item.id != todo.id);
+    this.renderTodos();
     localStorage.setItem("todoList",JSON.stringify(this.todos))
 
   }
 
   switchStatus(todo){
   todo.completed =!todo.completed
+  this.renderTodos();
   localStorage.setItem("todoList",JSON.stringify(this.todos))
   }
 }
